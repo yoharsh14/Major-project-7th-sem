@@ -1,10 +1,9 @@
 const { network } = require("hardhat");
 const developmentChains = ["hardhat", "localhost"];
-const { verify } = require("./scripts/verify");
+const { verify } = require("../scripts/verify.js");
 module.exports = async ({ getNamedAccounts, deployments }) => {
   const { deployer } = await getNamedAccounts();
-  const { deploy, log } = deployments;
-  const chainId = network.chainId;
+  const { deploy } = deployments;
   const nftMarketplace = await deploy("NFTMarketplace", {
     from: deployer,
     log: true,
